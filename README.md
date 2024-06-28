@@ -1,6 +1,6 @@
 # Coderoller
 
-`Coderoller` is a Python utility that flattens a source code repository into a single markdown file. This tool collects all relevant source and configuration files, including Python, JavaScript, TypeScript, HTML, CSS, JSON, and more, and compiles them into a markdown document. The flattened file provides an organized overview of the repository's contents, making it easy to use in conjunction with LLMs. Simply copy the contents of the flattened file and paste it into your LLM chat context. The flattened form is also great for API-based uses of LLMs in automated workflows.
+Coderoller is a Python utility that flattens a source code repository into a single markdown file. This tool collects all relevant source and configuration files, including Python, JavaScript, TypeScript, HTML, CSS, JSON, and more, and compiles them into a markdown document. The flattened file provides an organized overview of the repository's contents, making it easy to use in conjunction with LLMs. Simply copy the contents of the flattened file and paste it into your LLM chat context. The flattened form is also great for API-based uses of LLMs in automated workflows.
 
 ## Features
 
@@ -11,27 +11,22 @@
 
 ## Installation
 
-Coderoller requires Python 3.12 or later and PDM for package management.
+Coderoller requires Python 3.10 or later.
 
-1. Clone the repository:
+### Using pipx
 
-    ```bash
-    git clone https://github.com/yourusername/coderoller.git
-    cd coderoller
-    ```
+You can install Coderoller globally using pipx:
 
-2. Install dependencies using PDM:
-
-    ```bash
-    pdm install
-    ```
+```bash
+pipx install coderoller
+```
 
 ## Usage
 
 To flatten a source repository, use the `coderoller-flatten-repo` script.
 
 ```bash
-pdm run coderoller-flatten-repo /path/to/root/folder
+coderoller-flatten-repo /path/to/root/folder
 ```
 
 This command will create a markdown file named `reponame.flat.md` in the current working directory, containing the flattened contents of the repository.
