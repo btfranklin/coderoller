@@ -35,5 +35,6 @@ excludes = ["tests/**"]
 dev = [
     "pytest>=8.2.2",
 ]
+
 [project.scripts]
 coderoller-flatten-repo = "coderoller.flatten_repo:main"
