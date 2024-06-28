@@ -48,15 +48,18 @@ def find_readme(root_folder: str) -> str:
     return ""
 
 
-def flatten_repo(root_folder: str):
+def flatten_repo(root_folder: str, output_folder: str | None = None):
     """
     Flatten the source repository into a single markdown file.
 
     Args:
         root_folder (str): The root folder of the repository.
+        output_folder (str | None): The folder to save the flattened file. Defaults to the current working directory.
     """
     repo_name = os.path.basename(os.path.normpath(root_folder))
-    flattened_file_path = os.path.join(os.getcwd(), f"{repo_name}.flat.md")
+    if output_folder is None:
+        output_folder = os.getcwd()
+    flattened_file_path = os.path.join(output_folder, f"{repo_name}.flat.md")
 
     readme_path = find_readme(root_folder)
 
