@@ -5,7 +5,9 @@ description = "A collection of tools to flatten and process code repositories"
 authors = [
     {name = "B.T. Franklin", email = "brandon.franklin@gmail.com"},
 ]
-dependencies = []
+dependencies = [
+    "gitpython>=3.1.43",
+]
 requires-python = ">=3.10"
 readme = "README.md"
 license = {text = "MIT"}
