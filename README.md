@@ -8,6 +8,7 @@ Coderoller is a Python utility that flattens a source code repository into a sin
 - **Supports multiple file types** including `.py`, `.js`, `.jsx`, `.ts`, `.tsx`, `.swift`, `.go`, `.java`, `.c`, `.cpp`, `.h`, `.hpp`, `.cs`, `.lua`, `.rb`, `.php`, `.pl`, `.html`, `.css`, `.json`, `.toml`, `.md`, `.yaml`, `.yml`, `.conf`, `.ini`, and `.sh`.
 - **Automatically includes README** files if present, placing it at the start of the flattened file.
 - **Excludes hidden files and directories** (those starting with a dot).
+- **Supports flattening directly from Git URLs** even if the repository is not cloned locally.
 
 ## Installation
 
@@ -26,10 +27,16 @@ pipx install coderoller
 To flatten a source repository, use the `coderoller-flatten-repo` script.
 
 ```bash
-coderoller-flatten-repo /path/to/root/folder
+coderoller-flatten-repo /path/to/reponame
 ```
 
-This command will create a markdown file named `reponame.flat.md` in the current working directory, containing the flattened contents of the repository.
+To flatten a source repository directly from a Git URL, use the coderoller-flatten-repo script with the repository URL:
+
+```bash
+coderoller-flatten-repo https://github.com/username/reponame.git
+```
+
+Both commands will create a markdown file named `reponame.flat.md` in the current working directory, containing the flattened contents of the repository.
 
 ## License
 
