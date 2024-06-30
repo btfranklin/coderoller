@@ -1,4 +1,5 @@
 import os
+import pathspec
 
 # Dictionary mapping file extensions to their corresponding long form names
 FILE_TYPES = {
@@ -32,6 +33,54 @@ FILE_TYPES = {
 }
 
 
+def load_gitignore_patterns(root_folder: str) -> list[str]:
+    """
+    Load .gitignore patterns from the root folder.
+
+    Args:
+        root_folder (str): The root folder of the repository.
+
+    Returns:
+        list[str]: A list of patterns from the .gitignore file.
+    """
+    gitignore_path = os.path.join(root_folder, ".gitignore")
+    if os.path.exists(gitignore_path):
+        with open(gitignore_path, "r") as f:
+            patterns = f.read().splitlines()
+        return patterns
+    return []
+
+
+def should_include_path(file_path: str, spec: pathspec.PathSpec) -> bool:
+    """
+    Determine if a path should be included based on .gitignore patterns and specific exclusions.
+
+    Args:
+        file_path (str): The path of the file or directory to check.
+        spec (pathspec.PathSpec): The PathSpec object containing the .gitignore patterns.
+
+    Returns:
+        bool: True if the path should be included, False otherwise.
+    """
+    # Specific exclusions
+    specific_exclusions = [
+        "build",
+        "dist",
+        "node_modules",
+        "__pycache__",
+        ".flat.md",
+        ".lock",
+        ".hidden",
+    ]
+
+    # Check if the file or directory matches specific exclusions
+    if any(exclusion in file_path for exclusion in specific_exclusions):
+        return False
+
+    # Check against .gitignore patterns
+    return not spec.match_file(file_path)
+
+
 def find_readme(root_folder: str) -> str:
     """
     Find a README file in the root folder with any common README extension.
@@ -49,8 +98,8 @@ def find_readme(root_folder: str) -> str:
 
 
 def flatten_repo(
-    root_folder: str, output_folder: str | None = None, repo_name: str | None = None
-):
+    root_folder: str, output_folder: str = None, repo_name: str = None
+) -> None:
     """
     Flatten the source repository into a single markdown file.
 
@@ -80,14 +129,27 @@ def flatten_repo(
                 flat_file.write("\n```\n\n")
                 print(f"Included README file: {readme_path}")
 
+        # Collect patterns from .gitignore
+        gitignore_patterns = load_gitignore_patterns(root_folder)
+        spec = pathspec.PathSpec.from_lines(
+            pathspec.patterns.GitWildMatchPattern, gitignore_patterns
+        )
+
         # Recursively walk the repo and collect relevant files
         for dirpath, dirnames, filenames in os.walk(root_folder):
-            # Exclude hidden directories
-            dirnames[:] = [d for d in dirnames if not d.startswith(".")]
+            # Exclude directories and files matching .gitignore patterns and specific exclusions
+            dirnames[:] = [
+                d
+                for d in dirnames
+                if should_include_path(os.path.join(dirpath, d), spec)
+            ]
+            filenames[:] = [
+                f
+                for f in filenames
+                if should_include_path(os.path.join(dirpath, f), spec)
+            ]
 
             for filename in filenames:
-                if filename.startswith("."):
-                    continue  # Exclude hidden files
                 extension = os.path.splitext(filename)[1]
                 full_path = os.path.join(dirpath, filename)
                 if extension in FILE_TYPES and full_path != readme_path:
