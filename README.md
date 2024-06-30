@@ -7,7 +7,7 @@ Coderoller is a Python utility that flattens a source code repository into a sin
 - **Flattens source code repositories** into a single markdown file.
 - **Supports multiple file types** including `.py`, `.js`, `.jsx`, `.ts`, `.tsx`, `.swift`, `.go`, `.java`, `.c`, `.cpp`, `.h`, `.hpp`, `.cs`, `.lua`, `.rb`, `.php`, `.pl`, `.html`, `.css`, `.json`, `.toml`, `.md`, `.yaml`, `.yml`, `.conf`, `.ini`, and `.sh`.
 - **Automatically includes README** files if present, placing it at the start of the flattened file.
-- **Excludes hidden files and directories** (those starting with a dot), specific directories (`build`, `dist`, `node_modules`, `__pycache__`), specific files (`*.flat.md`, `*.lock`, `*.hidden`), and any paths specified in `.gitignore`.
+- **Excludes hidden files and directories** (those starting with a dot), specific directories (`build`, `dist`, `node_modules`, `__pycache__`), specific files (lockfiles, hidden files, other flattened files, etc.), and any paths specified in `.gitignore`.
 - **Supports flattening directly from Git URLs** even if the repository is not cloned locally.
 
 ## Installation

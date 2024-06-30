@@ -70,6 +70,7 @@ def should_include_path(file_path: str, spec: pathspec.PathSpec) -> bool:
         "__pycache__",
         ".flat.md",
         ".lock",
+        "-lock.json",
         ".hidden",
     ]
 
