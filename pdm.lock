@@ -3,9 +3,12 @@
 
 [metadata]
 groups = ["default", "dev"]
-strategy = ["cross_platform", "inherit_metadata"]
-lock_version = "4.4.2"
+strategy = ["inherit_metadata"]
+lock_version = "4.5.0"
 content_hash = "sha256:de4f44e7129675a17c960c62437a601b9aae32b7aec744576bc222820e5b9b58"
+
+[[metadata.targets]]
+requires_python = ">=3.10"
 
 [[package]]
 name = "colorama"
@@ -21,14 +24,14 @@ files = [
 
 [[package]]
 name = "exceptiongroup"
-version = "1.2.1"
+version = "1.2.2"
 requires_python = ">=3.7"
 summary = "Backport of PEP 654 (exception groups)"
 groups = ["dev"]
 marker = "python_version < \"3.11\""
 files = [
-    {file = "exceptiongroup-1.2.1-py3-none-any.whl", hash = "sha256:5258b9ed329c5bbdd31a309f53cbfb0b155341807f6ff7606a1e801a891b29ad"},
-    {file = "exceptiongroup-1.2.1.tar.gz", hash = "sha256:a4785e48b045528f5bfe627b6ad554ff32def154f42372786903b7abcfe1aa16"},
+    {file = "exceptiongroup-1.2.2-py3-none-any.whl", hash = "sha256:3111b9d131c238bec2f8f516e123e14ba243563fb135d3fe885990585aa7795b"},
+    {file = "exceptiongroup-1.2.2.tar.gz", hash = "sha256:47c2edf7c6738fafb49fd34290706d1a1a2f4d1c6df275526b62cbb4aa5393cc"},
 ]
 
 [[package]]
@@ -69,6 +72,7 @@ summary = "GitPython is a Python library used to interact with Git repositories"
 groups = ["default"]
 dependencies = [
     "gitdb<5,>=4.0.1",
+    "typing-extensions>=3.7.4.3; python_version < \"3.8\"",
 ]
 files = [
     {file = "GitPython-3.1.43-py3-none-any.whl", hash = "sha256:eec7ec56b92aad751f9912a73404bc02ba212a23adb2c7098ee668417051a1ff"},
@@ -154,7 +158,7 @@ files = [
 
 [[package]]
 name = "pytest"
-version = "8.2.2"
+version = "8.3.1"
 requires_python = ">=3.8"
 summary = "pytest: simple powerful testing with Python"
 groups = ["dev"]
@@ -163,12 +167,12 @@ dependencies = [
     "exceptiongroup>=1.0.0rc8; python_version < \"3.11\"",
     "iniconfig",
     "packaging",
-    "pluggy<2.0,>=1.5",
+    "pluggy<2,>=1.5",
     "tomli>=1; python_version < \"3.11\"",
 ]
 files = [
-    {file = "pytest-8.2.2-py3-none-any.whl", hash = "sha256:c434598117762e2bd304e526244f67bf66bbd7b5d6cf22138be51ff661980343"},
-    {file = "pytest-8.2.2.tar.gz", hash = "sha256:de4bb8104e201939ccdc688b27a89a7be2079b22e2bd2b07f806b6ba71117977"},
+    {file = "pytest-8.3.1-py3-none-any.whl", hash = "sha256:e9600ccf4f563976e2c99fa02c7624ab938296551f280835ee6516df8bc4ae8c"},
+    {file = "pytest-8.3.1.tar.gz", hash = "sha256:7e8e5c5abd6e93cb1cc151f23e57adc31fcf8cfd2a3ff2da63e23f732de35db6"},
 ]
 
 [[package]]
