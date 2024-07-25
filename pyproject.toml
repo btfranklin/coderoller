@@ -1,6 +1,6 @@
 [project]
 name = "coderoller"
-version = "0.4.1"
+version = "0.4.2"
 description = "A collection of tools to flatten and process code repositories"
 authors = [
     {name = "B.T. Franklin", email = "brandon.franklin@gmail.com"},
@@ -23,10 +23,15 @@ classifiers = [
     "Environment :: Console",
 ]
 
+[project.urls]
+Homepage = "https://github.com/btfranklin/coderoller"
+Issues = "https://github.com/btfranklin/coderoller/issues"
+Changelog = "https://github.com/btfranklin/coderoller/releases"
+Repository = "https://github.com/btfranklin/coderoller.git"
+
 [build-system]
 requires = ["pdm-backend"]
 build-backend = "pdm.backend"
-
 
 [tool.pdm]
 distribution = true
@@ -36,7 +41,7 @@ excludes = ["tests/**"]
 
 [tool.pdm.dev-dependencies]
 dev = [
-    "pytest>=8.2.2",
+    "pytest>=8.3.1",
     "flake8>=7.1.0",
 ]
 
