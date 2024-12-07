@@ -46,8 +46,8 @@ excludes = ["tests/**"]
 
 [tool.pdm.dev-dependencies]
 dev = [
-    "pytest>=8.3.1",
-    "flake8>=7.1.0",
+    "pytest>=8.3.4",
+    "flake8>=7.1.1",
 ]
 
 [project.scripts]
