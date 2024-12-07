@@ -1,6 +1,6 @@
 [project]
 name = "coderoller"
-version = "0.4.2"
+version = "0.4.3"
 description = "A collection of tools to flatten and process code repositories"
 authors = [
     {name = "B.T. Franklin", email = "brandon.franklin@gmail.com"},
