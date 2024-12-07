@@ -2,6 +2,8 @@
 
 ![Coderoller banner](https://raw.githubusercontent.com/btfranklin/coderoller/main/.github/social%20preview/coderoller_social_preview.jpg "Coderoller")
 
+[![Build Status](https://github.com/btfranklin/coderoller/actions/workflows/python-package.yml/badge.svg)](https://github.com/btfranklin/coderoller/actions/workflows/python-package.yml) [![Supports Python versions 3.10+](https://img.shields.io/pypi/pyversions/coderoller.svg)](https://pypi.python.org/pypi/coderoller)
+
 Coderoller is a Python utility that flattens a source code repository into a single markdown file. This tool collects all relevant source and configuration files, including Python, JavaScript, TypeScript, HTML, CSS, JSON, and more, and compiles them into a markdown document. The flattened file provides an organized overview of the repository's contents, making it easy to use in conjunction with LLMs. Simply copy the contents of the flattened file and paste it into your LLM chat context. The flattened form is also great for API-based uses of LLMs in automated workflows.
 
 ## Features
